@@ -37,8 +37,8 @@ public class HomeScreenManager :MonoBehaviour
 
         TextMeshProUGUI[] texts = btn.GetComponentsInChildren<TextMeshProUGUI>();
         texts[0].text = managementGroup.groupName;
-        texts[1].text = managementGroup.updateDate.ToString("yyyy/MM/dd");
-        texts[2].text = managementGroup.creationPerson;
+        texts[1].text = "制作日:" + managementGroup.updateDate.ToString("yyyy/MM/dd");
+        texts[2].text = "製作者:" + managementGroup.creationPerson;
 
         groupNameInput.text = "";
 
