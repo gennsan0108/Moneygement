@@ -49,9 +49,11 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ManagementRoomScene.cs" />
     <Compile Include="Assets\Scripts\PersonManagement.cs" />
     <Compile Include="Assets\Scripts\HomeScreenManager.cs" />
     <Compile Include="Assets\Scripts\ManagementRoom.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\IsDisplayHopUp.cs" />
   </ItemGroup>
   <ItemGroup>

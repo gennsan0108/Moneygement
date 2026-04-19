@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.UI;
 using TMPro;
 using System;
@@ -10,28 +10,46 @@ public class HomeScreenManager :MonoBehaviour
     public Transform content;
     public GameObject groupButtonPrefab;
     public TMP_InputField groupNameInput;
-    public static ManagementGroup currentGroup;
-    
-    
+    public static ManagementRoom currentRoom;
 
-    private List<ManagementGroup> groups = new List<ManagementGroup>();
+    void Start()
+    {
+       
+
+        foreach (ManagementGroup mg in GameManager.instance.groups)
+        {
+            
+            CreateGroupButton(mg);
+        }
+    }
+
+
 
     public void addGroup()
     {
+        //入力されたタイトルを取得
         string groupName = groupNameInput.text;
+        //未入力であれば何もしない
         if (string.IsNullOrEmpty(groupName)) return;
 
-        PersonManagement karidataUser = new PersonManagement("genn");
+        PersonManagement karidataUser = new PersonManagement("genn");//後で消す
         ManagementGroup managementGroup = new ManagementGroup(groupName, karidataUser);
 
-        groups.Add(managementGroup);
+        GameManager.instance.groups.Add(managementGroup);
 
+        CreateGroupButton(managementGroup);
+
+        groupNameInput.text = "";
+
+    }
+    void CreateGroupButton(ManagementGroup managementGroup)
+    {
         GameObject btn = Instantiate(groupButtonPrefab, content);
         btn.transform.SetAsFirstSibling();//ボタンを上から順にStack
-        ManagementGroup mg = managementGroup;
+        ManagementRoom mg = managementGroup.managementRoom;
         btn.GetComponent<Button>().onClick.AddListener(() =>
         {
-            HomeScreenManager.currentGroup = mg;
+            HomeScreenManager.currentRoom = mg;
             SceneManager.LoadScene("ManagementScene");
         });
 
@@ -39,8 +57,6 @@ public class HomeScreenManager :MonoBehaviour
         texts[0].text = managementGroup.groupName;
         texts[1].text = "制作日:" + managementGroup.updateDate.ToString("yyyy/MM/dd");
         texts[2].text = "製作者:" + managementGroup.creationPerson;
-
-        groupNameInput.text = "";
 
     }
     
