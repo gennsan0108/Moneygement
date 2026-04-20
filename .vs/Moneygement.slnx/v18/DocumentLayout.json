@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\hukum\\programming\\unitygames\\moneygement\\assets\\scripts\\managementroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managementroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\hukum\\programming\\unitygames\\moneygement\\assets\\scripts\\personmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\personmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\hukum\\programming\\unitygames\\moneygement\\assets\\scripts\\homescreenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\homescreenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\HomeScreenManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\HomeScreenManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\hukum\\programming\\unitygames\\moneygement\\assets\\scripts\\isdisplayhopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\isdisplayhopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\hukum\\programming\\unitygames\\moneygement\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\hukum\\programming\\unitygames\\moneygement\\assets\\scripts\\managementroomscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managementroomscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\hukum\\programming\\unitygames\\moneygement\\assets\\scripts\\managementroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managementroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,50 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PersonManagement.cs",
-              "DocumentMoniker": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\PersonManagement.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PersonManagement.cs",
-              "ToolTip": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\PersonManagement.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PersonManagement.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAMAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T09:11:41.841Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ManagementRoom.cs",
-              "DocumentMoniker": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\ManagementRoom.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ManagementRoom.cs",
-              "ToolTip": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\ManagementRoom.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ManagementRoom.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T08:46:15.858Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HomeScreenManager.cs",
-              "DocumentMoniker": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\HomeScreenManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\HomeScreenManager.cs",
-              "ToolTip": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\HomeScreenManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\HomeScreenManager.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACcAAAAdAAAAAAAAAA==",
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T18:54:34.608Z",
+              "WhenOpened": "2026-04-19T15:45:41.39Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "IsDisplayHopUp.cs",
               "DocumentMoniker": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\IsDisplayHopUp.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\IsDisplayHopUp.cs",
@@ -78,6 +56,45 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-18T20:00:14.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeScreenManager.cs",
+              "DocumentMoniker": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\HomeScreenManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HomeScreenManager.cs",
+              "ToolTip": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\HomeScreenManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HomeScreenManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T14:11:49.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ManagementRoomScene.cs",
+              "DocumentMoniker": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\ManagementRoomScene.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ManagementRoomScene.cs",
+              "ToolTip": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\ManagementRoomScene.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ManagementRoomScene.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T14:38:33.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ManagementRoom.cs",
+              "DocumentMoniker": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\ManagementRoom.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ManagementRoom.cs",
+              "ToolTip": "C:\\Users\\hukum\\programming\\Unitygames\\Moneygement\\Assets\\Scripts\\ManagementRoom.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ManagementRoom.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAuwA0AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T08:46:15.858Z",
               "EditorCaption": ""
             }
           ]

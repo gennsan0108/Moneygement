@@ -24,4 +24,8 @@ public class ManagementRoom
     {
         member.Add(joiner);
     }
+    public List<PersonManagement> MembersListBack()
+    {
+        return member;
+    }
 }

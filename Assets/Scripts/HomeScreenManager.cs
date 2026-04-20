@@ -65,7 +65,6 @@ public class HomeScreenManager :MonoBehaviour
 public class ManagementGroup
 {
     public string groupName;
-    public DateTime creationDate;
     public DateTime updateDate;
     public string creationPerson;
     public ManagementRoom managementRoom;
@@ -73,7 +72,6 @@ public class ManagementGroup
     public ManagementGroup(string groupName,PersonManagement person)
     {
         this.groupName = groupName;
-        this.creationDate = DateTime.Now;
         this.updateDate = DateTime.Now;
         this.creationPerson = person.playerName ;
         this.managementRoom = new ManagementRoom(person);
