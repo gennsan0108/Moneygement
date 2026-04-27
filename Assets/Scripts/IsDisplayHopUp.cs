@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class IsDisplayHopUp : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class IsDisplayHopUp : MonoBehaviour
 
     public GameObject MemberLabel;
     public Transform content;
+    public Sprite defaultBackGroundSprite;
+    public Sprite defaultIconSprite;
     //public ManagementRoom mr = HomeScreenManager.currentRoom;
 
 
@@ -25,7 +29,7 @@ public class IsDisplayHopUp : MonoBehaviour
     public void Display()//ホップアップを表示する
     {
         popupPanel.SetActive(true);
-
+        
         ManagementRoom mr = HomeScreenManager.currentRoom;
 
         List<PersonManagement> PMlist = mr.MembersListBack();
@@ -33,19 +37,29 @@ public class IsDisplayHopUp : MonoBehaviour
 
         foreach (PersonManagement pm in PMlist)
         {
-            
-            GameObject label = Instantiate(MemberLabel, content);
-            TextMeshProUGUI tmp = label.GetComponentInChildren<TextMeshProUGUI>();
-            Debug.Log("TMP: " + tmp);
-            tmp.text = pm.playerName;
 
+            GameObject label = Instantiate(MemberLabel, content);
+            
+            //タグの名前
             label.GetComponentInChildren<TextMeshProUGUI>().text = pm.playerName;
+            //タグの背景
+            label.GetComponentInChildren<Image>().sprite = defaultBackGroundSprite;
+
+            GameObject icon = label.transform.Find("HorizontalRow/Icon").gameObject;
+            icon.GetComponent<Image>().sprite = defaultIconSprite;
+
+            
 
         }
 
         
 
 
+    }
+
+    public void Disapear()
+    {
+        popupPanel.SetActive(false);
     }
   
 }
