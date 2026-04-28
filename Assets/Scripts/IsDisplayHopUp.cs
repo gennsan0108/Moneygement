@@ -33,7 +33,7 @@ public class IsDisplayHopUp : MonoBehaviour
         ManagementRoom mr = HomeScreenManager.currentRoom;
 
         List<PersonManagement> PMlist = mr.MembersListBack();
-        Debug.Log(content);
+        Debug.Log(mr.MembersListBack().Count);//後で消す
 
         foreach (PersonManagement pm in PMlist)
         {

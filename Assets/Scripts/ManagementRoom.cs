@@ -15,9 +15,10 @@ public class ManagementRoom
     {
 
         this.roomId = new string(Enumerable.Repeat(chars, 8).Select(s => s[rand.Next(s.Length)]).ToArray());
-        Console.WriteLine(roomId);//後で消す
+        Debug.Log(roomId);//後で消す
         this.hostPlayer = hostPlayer;
         member.Add(hostPlayer);
+        member.Add(hostPlayer);//後で消す
     }
 
     public void AddMember(PersonManagement joiner)
