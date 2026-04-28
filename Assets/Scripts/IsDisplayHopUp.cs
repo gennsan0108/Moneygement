@@ -12,7 +12,6 @@ public class IsDisplayHopUp : MonoBehaviour
 
     public GameObject MemberLabel;
     public Transform content;
-    public Sprite defaultBackGroundSprite;
     public Sprite defaultIconSprite;
     //public ManagementRoom mr = HomeScreenManager.currentRoom;
 
@@ -42,8 +41,6 @@ public class IsDisplayHopUp : MonoBehaviour
             
             //タグの名前
             label.GetComponentInChildren<TextMeshProUGUI>().text = pm.playerName;
-            //タグの背景
-            label.GetComponentInChildren<Image>().sprite = defaultBackGroundSprite;
 
             GameObject icon = label.transform.Find("HorizontalRow/Icon").gameObject;
             icon.GetComponent<Image>().sprite = defaultIconSprite;
