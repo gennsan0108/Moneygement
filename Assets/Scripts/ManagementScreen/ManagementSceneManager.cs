@@ -2,15 +2,10 @@ using UnityEngine;
 
 public class ManagementSceneManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    ManagementRoom mr = HomeScreenManager.currentRoom;
 
-    // Update is called once per frame
-    void Update()
+    void AddMember(PersonManagement person)
     {
-        
+        mr.AddMember(person);
     }
 }
