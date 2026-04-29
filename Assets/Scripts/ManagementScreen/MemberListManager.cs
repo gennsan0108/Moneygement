@@ -13,6 +13,7 @@ public class MemberListManager : MonoBehaviour
     public GameObject MemberLabel;
     public Transform content;
     public Sprite defaultIconSprite;
+    public TextMeshProUGUI titleText;
     //public ManagementRoom mr = HomeScreenManager.currentRoom;
 
 
@@ -23,7 +24,7 @@ public class MemberListManager : MonoBehaviour
         ManagementRoom mr = HomeScreenManager.currentRoom;
 
         List<PersonManagement> PMlist = mr.MembersListBack();
-        Debug.Log(mr.MembersListBack().Count);//後で消す
+        
 
         foreach (PersonManagement pm in PMlist)
         {
@@ -39,6 +40,10 @@ public class MemberListManager : MonoBehaviour
 
 
         }
+
+        //ついでに部屋のタイトル表示
+        titleText.text = mr.title;
+
 
 
     }

@@ -74,7 +74,7 @@ public class ManagementGroup
         this.groupName = groupName;
         this.updateDate = DateTime.Now;
         this.creationPerson = person.playerName ;
-        this.managementRoom = new ManagementRoom(person);
+        this.managementRoom = new ManagementRoom(person, groupName);
 
     }
     public void ChangeTitle(string fixedTitle)

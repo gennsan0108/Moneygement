@@ -69,7 +69,7 @@ public class ScreenChanger : MonoBehaviour
     }
     void CheckSwipe()
     {
-        Debug.Log(startPos.x - endPos.x);
+        
         //左スワイプ
         if (startPos.x - endPos.x > 300 && currentScreenIndex < screens.Length - 1)
         {

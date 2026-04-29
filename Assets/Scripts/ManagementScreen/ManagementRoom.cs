@@ -10,14 +10,16 @@ public class ManagementRoom
     System.Random rand = new System.Random();
     private string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     private List<PersonManagement> member = new List<PersonManagement>();
+    public String title;
 
-    public ManagementRoom(PersonManagement hostPlayer)
+    public ManagementRoom(PersonManagement hostPlayer, string title )
     {
 
         this.roomId = new string(Enumerable.Repeat(chars, 8).Select(s => s[rand.Next(s.Length)]).ToArray());
         Debug.Log(roomId);//後で消す
         this.hostPlayer = hostPlayer;
         member.Add(hostPlayer);
+        this.title = title;
     }
 
     public void AddMember(PersonManagement joiner)
