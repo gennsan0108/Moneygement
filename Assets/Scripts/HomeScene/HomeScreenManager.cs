@@ -49,7 +49,7 @@ public class HomeScreenManager :MonoBehaviour
         ManagementRoom mg = managementGroup.managementRoom;
         btn.GetComponent<Button>().onClick.AddListener(() =>
         {
-            HomeScreenManager.currentRoom = mg;
+            currentRoom = mg;
             SceneManager.LoadScene("ManagementScene");
         });
 

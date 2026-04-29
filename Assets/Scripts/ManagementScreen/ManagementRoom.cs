@@ -26,6 +26,11 @@ public class ManagementRoom
     {
         member.Add(joiner);
     }
+
+    public void RemoveMember(PersonManagement leaver)
+    {
+        member.Remove(leaver);
+    }
     public List<PersonManagement> MembersListBack()
     {
         return member;
