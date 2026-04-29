@@ -49,13 +49,13 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ScreenChanger.cs" />
-    <Compile Include="Assets\Scripts\ManagementRoomScene.cs" />
-    <Compile Include="Assets\Scripts\PersonManagement.cs" />
-    <Compile Include="Assets\Scripts\HomeScreenManager.cs" />
-    <Compile Include="Assets\Scripts\ManagementRoom.cs" />
-    <Compile Include="Assets\Scripts\MemberListManager.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\HomeScene\GameManager.cs" />
+    <Compile Include="Assets\Scripts\ManagementScreen\ManagementSceneManager.cs" />
+    <Compile Include="Assets\Scripts\ManagementScreen\ManagementRoom.cs" />
+    <Compile Include="Assets\Scripts\HomeScene\HomeScreenManager.cs" />
+    <Compile Include="Assets\Scripts\ManagementScreen\MemberListManager.cs" />
+    <Compile Include="Assets\Scripts\ManagementScreen\ScreenChanger.cs" />
+    <Compile Include="Assets\Scripts\HomeScene\PersonManagement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

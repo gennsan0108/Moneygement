@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScreenChanger : MonoBehaviour
 {
@@ -12,5 +13,10 @@ public class ScreenChanger : MonoBehaviour
         }
 
         screens[screenIndex].SetActive(true);
+    }
+
+    public void BackToHomeScreen()
+    {
+        SceneManager.LoadScene("HomeScene");
     }
 }

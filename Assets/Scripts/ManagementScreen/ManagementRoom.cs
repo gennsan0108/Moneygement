@@ -18,7 +18,6 @@ public class ManagementRoom
         Debug.Log(roomId);//後で消す
         this.hostPlayer = hostPlayer;
         member.Add(hostPlayer);
-        member.Add(hostPlayer);//後で消す
     }
 
     public void AddMember(PersonManagement joiner)
