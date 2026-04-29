@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class IsDisplayHopUp : MonoBehaviour
+public class MemberListManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject popupPanel;
@@ -19,16 +19,7 @@ public class IsDisplayHopUp : MonoBehaviour
 
     void Start()
     {
-        popupPanel.SetActive(false);
 
-        
-    }
-
-    // Update is called once per frame
-    public void Display()//ホップアップを表示する
-    {
-        popupPanel.SetActive(true);
-        
         ManagementRoom mr = HomeScreenManager.currentRoom;
 
         List<PersonManagement> PMlist = mr.MembersListBack();
@@ -38,25 +29,23 @@ public class IsDisplayHopUp : MonoBehaviour
         {
 
             GameObject label = Instantiate(MemberLabel, content);
-            
+
             //タグの名前
             label.GetComponentInChildren<TextMeshProUGUI>().text = pm.playerName;
 
             GameObject icon = label.transform.Find("HorizontalRow/Icon").gameObject;
             icon.GetComponent<Image>().sprite = defaultIconSprite;
 
-            
+
 
         }
 
-        
-
 
     }
 
-    public void Disapear()
-    {
-        popupPanel.SetActive(false);
-    }
+    // Update is called once per frame
+    
+
+   
   
 }
