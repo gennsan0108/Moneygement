@@ -5,21 +5,27 @@ using System.Collections.Generic;
 public class ManagementSceneManager : MonoBehaviour
 {
     ManagementRoom mr = HomeScreenManager.currentRoom;
-    List<PaymentRecord> paymentRecordsList = new List<PaymentRecord>();
+    [SerializeField] private Transform payingMembersContent;//請求リストのContentを取得
+    
 
 
     public void RemoveMember(PersonManagement person)
     {
-        foreach (PaymentRecord pr in paymentRecordsList)
+        /*ここに削除を本当にするかのモーダルを処理*/
+
+        mr.RemoveMember(person);
+        
+    }
+
+
+    public void AddPaymentButton(){
+
+        //Contentの子オブジェクト(請求者メンバー全員)を取得
+        foreach(Transform child in payingMembersContent)
         {
-            pr.RemoveMember(person);
-            mr.RemoveMember(person);
+
         }
     }
 
-
-    public void ListingPaymentView()
-    {
-
-    }
+    
 }
