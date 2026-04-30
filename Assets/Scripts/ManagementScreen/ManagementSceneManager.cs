@@ -7,16 +7,14 @@ using UnityEngine.UI;
 public class ManagementSceneManager : MonoBehaviour
 {
     private ManagementRoom mr;
-    private PaymentRecord paymentRecord;
     [SerializeField] private GameObject paymentPrefab;
     [SerializeField] private Transform paymentContent;
-    [SerializeField] private Transform payingMembersContent;//請求リストのContentを取得
     
 
     private void Start()
     {
         mr = HomeScreenManager.currentRoom;
-        paymentRecord = new PaymentRecord();
+        
         AddPaymentMemberInList(mr);
         
     }
@@ -29,7 +27,7 @@ public class ManagementSceneManager : MonoBehaviour
     }
 
 
-    public void AddPaymentButton(TextMeshProUGUI title)
+    public void AddPaymentButton(TMP_InputField title)
     {
         PaymentRecord newRecord = new PaymentRecord();
         newRecord.SetTitle(title.text);
@@ -63,10 +61,9 @@ public class ManagementSceneManager : MonoBehaviour
         }
 
         mr.paymentRecordsList.Add(newRecord);
+        Debug.Log("ClearPaymentInputsを呼びます");
+        ClearPaymentInputs();
     }
-
-
-
 
 
     void AddPaymentMemberInList(ManagementRoom mr)
@@ -82,43 +79,20 @@ public class ManagementSceneManager : MonoBehaviour
         }
     }
 
-    private void UpdatePaymentMember(PersonManagement person, string textMoney)
-    {
-        if (string.IsNullOrEmpty(textMoney) || textMoney == "0")
-        {
-            paymentRecord.RemoveMember(person);
-            return;
-        }
-
-        if (!int.TryParse(textMoney, out int money))
-        {
-            Debug.LogWarning("正しい値を入力してください");
-            paymentRecord.RemoveMember(person);
-            return;
-        }
-
-        if (money < 0)
-        {
-            Debug.LogWarning("金額は0以上で入力してください");
-            paymentRecord.RemoveMember(person);
-            return;
-        }
-
-        paymentRecord.SetMemberPayment(person, money);
-    }
-
     private void ClearPaymentInputs()
     {
+        Debug.Log("ClearPaymentInputsが実行されました");
         foreach (Transform child in paymentContent)
         {
-            TMP_InputField input = child.GetComponentInChildren<TMP_InputField>();
+            PaymentMemberInput memberInput = child.GetComponent<PaymentMemberInput>();
 
-            if (input != null)
+            if (memberInput != null)
             {
-                input.text = "0";
+                memberInput.Clear();
             }
         }
     }
+
 }
 
 

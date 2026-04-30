@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
 
+
+//請求者のPrefabをPersonManagementで固有に割り当てる
 public class PaymentMemberInput : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameText;
@@ -12,7 +14,7 @@ public class PaymentMemberInput : MonoBehaviour
     {
         Person = person;
         nameText.text = person.personName;
-        moneyInput.text = "";
+        moneyInput.text = "0";
     }
 
     public string GetMoneyText()
@@ -22,6 +24,6 @@ public class PaymentMemberInput : MonoBehaviour
 
     public void Clear()
     {
-        moneyInput.SetTextWithoutNotify("");
+        moneyInput.SetTextWithoutNotify("0");
     }
 }
