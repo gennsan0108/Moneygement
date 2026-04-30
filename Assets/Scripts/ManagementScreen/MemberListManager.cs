@@ -15,8 +15,7 @@ public class MemberListManager : MonoBehaviour
     [SerializeField] private Transform content;//を入れるスクロールバー
     [SerializeField] private Sprite defaultIconSprite;//アイコン仮
     [SerializeField] private TextMeshProUGUI titleText;
-    [SerializeField] private GameObject paymentPrefab;
-    [SerializeField] private Transform paymentContent;
+   
 
 
    
@@ -31,39 +30,30 @@ public class MemberListManager : MonoBehaviour
     //メンバーリスト画面のメンバーの表示
     void InitMemberDisplauable(ManagementRoom mr)
     {
-        List<PersonManagement> PMlist = mr.MembersListBack();
+       
 
 
-        foreach (PersonManagement pm in PMlist)
+        foreach (PersonManagement pm in mr.MembersListBack())
         {
             PersonManagement capturedPm = pm; // キャプチャする変数を作成
             GameObject label = Instantiate(MemberLabel, content);
 
             //タグの名前
-            label.GetComponentInChildren<TextMeshProUGUI>().text = capturedPm.playerName;
+            label.GetComponentInChildren<TextMeshProUGUI>().text = capturedPm.personName;
 
             GameObject icon = label.transform.Find("HorizontalRow/Icon").gameObject;
             icon.GetComponent<Image>().sprite = defaultIconSprite;
 
 
             //ついでに請求者のListを表示
-            AddPaymentMemberInList(capturedPm);
+            
 
 
         }
     }
 
     //請求作成画面でのメンバーのリスト表示
-    void AddPaymentMemberInList(PersonManagement pm)
-    {
-        GameObject paymentLabel = Instantiate(paymentPrefab, paymentContent);
-        paymentLabel.GetComponentInChildren <TextMeshProUGUI>().text = pm.playerName;
-
-        string money = paymentLabel.GetComponentInChildren<TMP_InputField>().text;
-        
-        
-        
-    }
+    
 
 
 

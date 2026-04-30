@@ -52,6 +52,7 @@
     <Compile Include="Assets\Scripts\ManagementScreen\PaymentRecord.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\ManagementSceneManager.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\ManagementRoom.cs" />
+    <Compile Include="Assets\Scripts\ManagementScreen\PaymentMemberInput.cs" />
     <Compile Include="Assets\Scripts\HomeScene\HomeScreenManager.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\MemberListManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

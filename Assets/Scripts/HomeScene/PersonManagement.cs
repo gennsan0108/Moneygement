@@ -2,10 +2,10 @@ using Microsoft.Unity.VisualStudio.Editor;
 
 public class PersonManagement
 {
-    public string playerName;
+    public string personName;
     public Image playerIcon;
-    public PersonManagement(string playerName)
+    public PersonManagement(string personName)
     {
-        this.playerName = playerName;
+        this.personName = personName;
     }
 }

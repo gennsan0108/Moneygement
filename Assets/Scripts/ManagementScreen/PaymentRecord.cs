@@ -1,21 +1,45 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class PaymentRecord : MonoBehaviour
+public class PaymentRecord
 {
-    public List<PayPerson> paymentMembers = new List<PayPerson>();
-    private string paymentTitle;
-    private int totalPayment;
+    private Dictionary<PersonManagement, int> paymentMembers = new Dictionary<PersonManagement, int>();
+    public string paymentTitle;
+    public int totalPayment = 0;
 
-    [System.Serializable]
-    public struct PayPerson
+
+
+    public void SetMemberPayment(PersonManagement person, int money)
     {
-        public PersonManagement person;
-        public int rate;
+        RemoveMember(person);
+
+        if (money <= 0) return;
+
+        paymentMembers.Add(person, money);
+        totalPayment += money;
+    }
+
+    public void SetTitle(string title)
+    {
+        paymentTitle = title;
+    }
+
+    public void AddMember(PersonManagement pm, int money)
+    {
+        paymentMembers[pm] = money;
+        totalPayment += money;
     }
 
     public void RemoveMember(PersonManagement targetPerson)
     {
-        paymentMembers.RemoveAll(x => x.person == targetPerson);
+        if (paymentMembers.TryGetValue(targetPerson, out int money))
+        {
+            totalPayment -= money;
+            paymentMembers.Remove(targetPerson);
+        }
+    }
+    public bool HasMembers()
+    {
+        return paymentMembers.Count > 0;
     }
 }
