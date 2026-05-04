@@ -13,7 +13,6 @@ public class MemberListManager : MonoBehaviour
 
     [SerializeField] private GameObject MemberLabel;//メンバー画面のメンバーPrefab
     [SerializeField] private Transform content;//を入れるスクロールバー
-    [SerializeField] private Sprite defaultIconSprite;//アイコン仮
     [SerializeField] private TextMeshProUGUI titleText;
    
 
@@ -22,13 +21,13 @@ public class MemberListManager : MonoBehaviour
     void Start()
     {
         ManagementRoom mr = HomeScreenManager.currentRoom;
-        InitMemberDisplauable(mr);
+        InitMemberDisplayable(mr);
         //ついでに部屋のタイトル表示
         titleText.text = mr.title;
 
     }
     //メンバーリスト画面のメンバーの表示
-    void InitMemberDisplauable(ManagementRoom mr)
+    void InitMemberDisplayable(ManagementRoom mr)
     {
        
 
@@ -36,16 +35,13 @@ public class MemberListManager : MonoBehaviour
         foreach (PersonManagement pm in mr.MembersListBack())
         {
             PersonManagement capturedPm = pm; // キャプチャする変数を作成
-            GameObject label = Instantiate(MemberLabel, content);
+            GameObject memberLabel = Instantiate(MemberLabel, content);
 
-            //タグの名前
-            label.GetComponentInChildren<TextMeshProUGUI>().text = capturedPm.personName;
-
-            GameObject icon = label.transform.Find("HorizontalRow/Icon").gameObject;
-            icon.GetComponent<Image>().sprite = defaultIconSprite;
+            MemberTag memberTag = memberLabel.GetComponent<MemberTag>();
 
 
-            //ついでに請求者のListを表示
+
+            memberTag.Setup(capturedPm);
             
 
 

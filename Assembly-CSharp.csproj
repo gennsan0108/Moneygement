@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ManagementScreen\PaymentRecord.cs" />
+    <Compile Include="Assets\Scripts\ManagementScreen\MemberTag.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\ManagementSceneManager.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\ManagementRoom.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\PaymentMemberInput.cs" />

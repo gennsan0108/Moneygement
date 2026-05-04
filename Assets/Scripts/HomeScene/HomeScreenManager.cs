@@ -11,6 +11,7 @@ public class HomeScreenManager :MonoBehaviour
     public GameObject groupButtonPrefab;
     public TMP_InputField groupNameInput;
     public static ManagementRoom currentRoom;
+    [SerializeField] private Sprite defaultIconSprite;//アイコン仮
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class HomeScreenManager :MonoBehaviour
         //未入力であれば何もしない
         if (string.IsNullOrEmpty(groupName)) return;
 
-        PersonManagement karidataUser = new PersonManagement("genn");//後で消す
+        PersonManagement karidataUser = new PersonManagement("genn",defaultIconSprite);//後で消す
         ManagementGroup managementGroup = new ManagementGroup(groupName, karidataUser);
 
         GameManager.instance.groups.Add(managementGroup);

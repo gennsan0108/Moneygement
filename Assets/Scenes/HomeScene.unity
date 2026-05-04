@@ -1705,6 +1705,7 @@ MonoBehaviour:
   content: {fileID: 1534883765}
   groupButtonPrefab: {fileID: 7753039612742427920, guid: 472a6685af4e5cd469610a83dae973e2, type: 3}
   groupNameInput: {fileID: 452800104}
+  defaultIconSprite: {fileID: 7527747925618323874, guid: d4a949a4f1d74d047b25331a91aff012, type: 3}
 --- !u!4 &1063849104
 Transform:
   m_ObjectHideFlags: 0
