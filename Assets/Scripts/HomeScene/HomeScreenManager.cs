@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class HomeScreenManager :MonoBehaviour
 {
     public Transform content;
-    public GameObject groupButtonPrefab;
+    [SerializeField] private GameObject groupButtonPrefab;
     public TMP_InputField groupNameInput;
     public static ManagementRoom currentRoom;
     [SerializeField] private Sprite defaultIconSprite;//アイコン仮

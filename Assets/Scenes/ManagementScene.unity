@@ -818,6 +818,53 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &540044424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 540044426}
+  - component: {fileID: 540044425}
+  m_Layer: 0
+  m_Name: RecordScreenManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &540044425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540044424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ebcbba9de8f4a4bad48ece6eea98b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecordScreenManager
+  content: {fileID: 0}
+  paysMembers: {fileID: 1569301523488348739, guid: 34b82e7f43846b9409209b646b96816b, type: 3}
+  recordPrefab: {fileID: 6688276754749285200, guid: 12b709c14bd95b94eb80cea4cacbf0d6, type: 3}
+--- !u!4 &540044426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540044424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 540, y: 960, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &597349903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,11 +2217,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1246741511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c88b11a2c601d0446ac054d8860b4824, type: 3}
+  m_Script: {fileID: 11500000, guid: 7afba63f3c8a7d04381acb511863223b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   paymentPrefab: {fileID: 1291432745058008278, guid: 2a8f77d89b8d03740b125c80e98ede4a, type: 3}
   paymentContent: {fileID: 483940514}
+  rsm: {fileID: 540044425}
 --- !u!1 &1359057269
 GameObject:
   m_ObjectHideFlags: 0
@@ -3409,7 +3457,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2033388927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5254bc720674a4b8b68429f04de746, type: 3}
+  m_Script: {fileID: 11500000, guid: ddf5d06d32cb18147a83da23ead43455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IsDisplayHopUp
   popupPanel: {fileID: 777135821}
@@ -4111,3 +4159,4 @@ SceneRoots:
   - {fileID: 1246741512}
   - {fileID: 2033388928}
   - {fileID: 1535857176}
+  - {fileID: 540044426}

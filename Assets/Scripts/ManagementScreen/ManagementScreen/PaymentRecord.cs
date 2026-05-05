@@ -24,6 +24,11 @@ public class PaymentRecord
         paymentTitle = title;
     }
 
+    public Dictionary<PersonManagement,int> GetPaysMember()
+    {
+        return paymentMembers;
+    }
+
     public void AddMember(PersonManagement pm, int money)
     {
         paymentMembers[pm] = money;

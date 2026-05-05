@@ -9,6 +9,7 @@ public class ManagementSceneManager : MonoBehaviour
     private ManagementRoom mr;
     [SerializeField] private GameObject paymentPrefab;
     [SerializeField] private Transform paymentContent;
+    [SerializeField] private RecordScreenManager rsm;
     
 
     private void Start()
@@ -31,6 +32,7 @@ public class ManagementSceneManager : MonoBehaviour
     {
         PaymentRecord newRecord = new PaymentRecord();
         newRecord.SetTitle(title.text);
+        bool isProperToAdd = false;
 
         foreach (Transform child in paymentContent)
         {
@@ -56,12 +58,16 @@ public class ManagementSceneManager : MonoBehaviour
                 Debug.LogWarning("金額は0以上で入力してください");
                 return;
             }
-
+            isProperToAdd = true;
             newRecord.SetMemberPayment(person, money);
         }
 
-        mr.paymentRecordsList.Add(newRecord);
-        Debug.Log("ClearPaymentInputsを呼びます");
+        if (isProperToAdd)
+        {
+            mr.paymentRecordsList.Add(newRecord);
+            rsm.ViewAddedRecord(newRecord);
+        }
+       
         ClearPaymentInputs();
     }
 
