@@ -9,13 +9,14 @@ public class ManagementSceneManager : MonoBehaviour
     private ManagementRoom mr;
     [SerializeField] private GameObject paymentPrefab;
     [SerializeField] private Transform paymentContent;
+    [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private RecordScreenManager rsm;
     
 
     private void Start()
     {
         mr = HomeScreenManager.currentRoom;
-        
+        titleText.text = mr.title;
         AddPaymentMemberInList(mr);
         
     }
@@ -36,8 +37,7 @@ public class ManagementSceneManager : MonoBehaviour
             return;
         }
         PaymentRecord newRecord = new PaymentRecord();
-        newRecord.SetTitle(title.text);
-        bool isProperToAdd = false;
+        newRecord.paymentTitle = title.text;
 
         foreach (Transform child in paymentContent)
         {
@@ -68,11 +68,11 @@ public class ManagementSceneManager : MonoBehaviour
             {
                 continue;
             }
-            isProperToAdd = true;
+            
             newRecord.SetMemberPayment(person, money);
         }
 
-        if (isProperToAdd)
+        if (newRecord.HasMembers())
         {
             Debug.Log("通過");
             mr.paymentRecordsList.Add(newRecord);

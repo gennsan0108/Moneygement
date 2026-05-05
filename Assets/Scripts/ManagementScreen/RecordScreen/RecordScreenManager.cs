@@ -11,10 +11,10 @@ public class RecordScreenManager : MonoBehaviour
 
     void Start()
     {
-        
+        GameManager.onDataChangedForMember = ReViewAllRecord; 
     }
 
-    // Update is called once per frame
+    
     public void ViewAddedRecord(PaymentRecord pr) 
     {
         //タイトル表示
@@ -28,5 +28,20 @@ public class RecordScreenManager : MonoBehaviour
             paysMember.GetComponentInChildren<TextMeshProUGUI>().text = pair.Key.personName +"       " + pair.Value.ToString() + "円";
         }
        
+    }
+
+    public void ReViewAllRecord()
+    {
+        ManagementRoom mr = HomeScreenManager.currentRoom;
+        foreach(Transform child in content)
+        {
+            Destroy(child);
+        }
+
+        foreach(PaymentRecord pr in mr.paymentRecordsList)
+        {
+            ViewAddedRecord(pr);
+        }
+
     }
 }
