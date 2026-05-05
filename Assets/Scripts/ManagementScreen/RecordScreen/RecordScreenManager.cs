@@ -19,10 +19,11 @@ public class RecordScreenManager : MonoBehaviour
     {
         //タイトル表示
         GameObject record = Instantiate(recordPrefab, content);
-        record.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = pr.paymentTitle;
-        foreach(KeyValuePair<PersonManagement,int> pair in pr.GetPaysMember())
+        record.GetComponentInChildren<TextMeshProUGUI>().text = pr.paymentTitle;
+        Transform memberContainer = record.transform.Find("MemberContainer");
+        foreach (KeyValuePair<PersonManagement,int> pair in pr.GetPaysMember())
         {
-            GameObject paysMember = Instantiate(paysMembers, record.transform.GetChild(1));
+            GameObject paysMember = Instantiate(paysMembers, memberContainer);
             paysMember.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = pair.Key.personIcon;
             paysMember.GetComponentInChildren<TextMeshProUGUI>().text = pair.Key.personName +"       " + pair.Value.ToString() + "円";
         }

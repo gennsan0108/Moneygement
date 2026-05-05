@@ -30,6 +30,11 @@ public class ManagementSceneManager : MonoBehaviour
 
     public void AddPaymentButton(TMP_InputField title)
     {
+        if(title.text == "")
+        {
+            Debug.LogWarning("タイトルを入力してください");
+            return;
+        }
         PaymentRecord newRecord = new PaymentRecord();
         newRecord.SetTitle(title.text);
         bool isProperToAdd = false;
@@ -42,9 +47,10 @@ public class ManagementSceneManager : MonoBehaviour
             PersonManagement person = memberInput.Person;
             string textMoney = memberInput.GetMoneyText();
 
-            if (string.IsNullOrEmpty(textMoney) || textMoney == "0")
+            if (string.IsNullOrWhiteSpace(textMoney))
             {
-                continue;
+                Debug.LogWarning("正しい値を入力してください");
+                return;
             }
 
             if (!int.TryParse(textMoney, out int money))
@@ -58,17 +64,28 @@ public class ManagementSceneManager : MonoBehaviour
                 Debug.LogWarning("金額は0以上で入力してください");
                 return;
             }
+            if(money == 0)
+            {
+                continue;
+            }
             isProperToAdd = true;
             newRecord.SetMemberPayment(person, money);
         }
 
         if (isProperToAdd)
         {
+            Debug.Log("通過");
             mr.paymentRecordsList.Add(newRecord);
             rsm.ViewAddedRecord(newRecord);
+
+            ClearPaymentInputs();
         }
-       
-        ClearPaymentInputs();
+        else
+        {
+            Debug.LogWarning("不合格");
+            newRecord = null;
+        }
+        
     }
 
 
@@ -87,7 +104,6 @@ public class ManagementSceneManager : MonoBehaviour
 
     private void ClearPaymentInputs()
     {
-        Debug.Log("ClearPaymentInputsが実行されました");
         foreach (Transform child in paymentContent)
         {
             PaymentMemberInput memberInput = child.GetComponent<PaymentMemberInput>();
