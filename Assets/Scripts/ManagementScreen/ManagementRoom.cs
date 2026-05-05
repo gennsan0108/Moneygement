@@ -13,6 +13,7 @@ public class ManagementRoom
     private List<PersonManagement> member = new List<PersonManagement>();
     public String title;
     public List<PaymentRecord> paymentRecordsList;
+    public int totalAmount;
 
     public ManagementRoom(PersonManagement hostPlayer, string title)
     {
@@ -22,6 +23,7 @@ public class ManagementRoom
         member.Add(hostPlayer);
         this.title = title;
         this.paymentRecordsList = new List<PaymentRecord>();
+        this.totalAmount = 0;
     }
 
     public void AddMember(PersonManagement joiner)

@@ -22,9 +22,8 @@ public class MemberListManager : MonoBehaviour
     {
 
         mr = HomeScreenManager.currentRoom;
-        //ついでに部屋のタイトル表示
+        
         GameManager.onDataChangedForMember += ReViewMemberList;
-        GameManager.onDataChangedForMember += InitMemberDisplayable;
 
     }
     //メンバーリスト画面のメンバーの表示

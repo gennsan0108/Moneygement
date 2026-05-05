@@ -12,10 +12,6 @@ public class PaymentRecord
 
     public void SetMemberPayment(PersonManagement person, int money)
     {
-        RemoveMember(person);
-
-        if (money <= 0) return;
-
         paymentMembers.Add(person, money);
         totalPayment += money;
     }

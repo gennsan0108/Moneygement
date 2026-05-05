@@ -75,8 +75,9 @@ public class ManagementSceneManager : MonoBehaviour
         if (newRecord.HasMembers())
         {
             Debug.Log("通過");
-            mr.paymentRecordsList.Add(newRecord);
-            rsm.ViewAddedRecord(newRecord);
+            mr.paymentRecordsList.Add(newRecord);//支払いを追加
+            mr.totalAmount += newRecord.totalPayment;//合計金額を加算
+            rsm.ViewAddedRecord(newRecord);//支払いをListにて表示する
 
             ClearPaymentInputs();
         }
