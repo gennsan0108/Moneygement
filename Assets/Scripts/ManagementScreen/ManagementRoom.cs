@@ -45,4 +45,11 @@ public class ManagementRoom
     {
         return member;
     }
+    public void AddPayment(PaymentRecord payment)
+    {
+        payment.CalcPayMoneyForEveyone();
+        paymentRecordsList.Add(payment);
+        totalAmount += payment.totalPayment;
+        
+    }
 }

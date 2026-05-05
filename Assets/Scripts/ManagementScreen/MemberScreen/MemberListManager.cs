@@ -24,7 +24,7 @@ public class MemberListManager : MonoBehaviour
         mr = HomeScreenManager.currentRoom;
         InitMemberDisplayable();
         
-        GameManager.onDataChangedForMember += ReViewMemberList;
+        GameManager.onDataChangedForMember += ReViewMemberList;//再描写のためにメソッドを登録する
 
     }
     //メンバーリスト画面のメンバーの表示
@@ -39,15 +39,11 @@ public class MemberListManager : MonoBehaviour
             GameObject memberLabel = Instantiate(MemberLabel, content);
 
             MemberTag memberTag = memberLabel.GetComponent<MemberTag>();
-
-
-
             memberTag.Setup(pm);
-            
-
 
         }
     }
+    //メンバーに変更があった時に再描写する
     void ReViewMemberList()
     {
         foreach(Transform child in content)
@@ -59,6 +55,10 @@ public class MemberListManager : MonoBehaviour
     }
 
     //請求作成画面でのメンバーのリスト表示
+    public void DeleteButtonPushed()
+    {
+        return;
+    }
     
 
 

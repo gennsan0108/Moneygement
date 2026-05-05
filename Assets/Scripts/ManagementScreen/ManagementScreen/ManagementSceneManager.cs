@@ -36,7 +36,7 @@ public class ManagementSceneManager : MonoBehaviour
             Debug.LogWarning("タイトルを入力してください");
             return;
         }
-        PaymentRecord newRecord = new PaymentRecord();
+        PaymentRecord newRecord = new PaymentRecord(mr.MembersListBack());
         newRecord.paymentTitle = title.text;
 
         foreach (Transform child in paymentContent)
@@ -47,6 +47,8 @@ public class ManagementSceneManager : MonoBehaviour
             PersonManagement person = memberInput.Person;
             string textMoney = memberInput.GetMoneyText();
 
+
+            //入力バリデーション
             if (string.IsNullOrWhiteSpace(textMoney))
             {
                 Debug.LogWarning("正しい値を入力してください");
@@ -68,15 +70,15 @@ public class ManagementSceneManager : MonoBehaviour
             {
                 continue;
             }
-            
+            //ここまで
+
             newRecord.SetMemberPayment(person, money);
         }
 
         if (newRecord.HasMembers())
         {
             Debug.Log("通過");
-            mr.paymentRecordsList.Add(newRecord);//支払いを追加
-            mr.totalAmount += newRecord.totalPayment;//合計金額を加算
+            mr.AddPayment(newRecord);
             rsm.ViewAddedRecord(newRecord);//支払いをListにて表示する
 
             ClearPaymentInputs();

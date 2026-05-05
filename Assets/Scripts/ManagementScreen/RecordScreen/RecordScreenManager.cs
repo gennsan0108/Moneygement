@@ -13,7 +13,7 @@ public class RecordScreenManager : MonoBehaviour
 
     void Start()
     {
-        GameManager.onDataChangedForMember = ReViewAllRecord;
+        GameManager.onDataChangedForMember = ReViewAllRecord;//再描写のためにメソッドを登録する
         mr = HomeScreenManager.currentRoom;
         totalMoney.text = "0円";
     }
@@ -36,15 +36,16 @@ public class RecordScreenManager : MonoBehaviour
        
     }
 
+    //メンバーが更新されたときにすべて再描写する
     public void ReViewAllRecord()
     {
         
-        foreach(Transform child in content)
+        foreach(Transform child in content)//いったんすべて消し
         {
             Destroy(child);
         }
 
-        foreach(PaymentRecord pr in mr.paymentRecordsList)
+        foreach(PaymentRecord pr in mr.paymentRecordsList)//一つ一つ戻す
         {
             ViewAddedRecord(pr);
         }
