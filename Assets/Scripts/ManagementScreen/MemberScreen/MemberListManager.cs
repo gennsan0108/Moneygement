@@ -22,6 +22,7 @@ public class MemberListManager : MonoBehaviour
     {
 
         mr = HomeScreenManager.currentRoom;
+        InitMemberDisplayable();
         
         GameManager.onDataChangedForMember += ReViewMemberList;
 
