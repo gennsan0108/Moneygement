@@ -10,11 +10,10 @@ public class MemberListManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private GameObject informationTab;
-    [SerializeField] private GameObject howMuchPays;
-    [SerializeField] private Transform paysContainer;
 
     [SerializeField] private GameObject MemberLabel;//メンバー画面のメンバーPrefab
     [SerializeField] private Transform content;//を入れるスクロールバー
+    [SerializeField] private TabManager tabManager;
 
 
     ManagementRoom mr;
@@ -46,7 +45,8 @@ public class MemberListManager : MonoBehaviour
             btn.onClick.AddListener(() =>
             {
                 PersonManagement capturedPm = pm;
-                DisplayBill(capturedPm);
+                
+                tabManager.OpenTab(mr.totalPayment, capturedPm);//ある支払いのある人が支払わなければならない時のPrefab追加
                 informationTab.GetComponent<BottomSheet>().Open();
 
             });
@@ -64,25 +64,8 @@ public class MemberListManager : MonoBehaviour
         InitMemberDisplayable();
     }
 
-    //請求作成画面でのメンバーのリスト表示
-    void DisplayBill(PersonManagement selectedPm)
-    {
-        foreach (Transform child in paysContainer)
-        {
-            Destroy(child.gameObject);
-        }
-
-        foreach (Credit credit in mr.totalPayment.calculatePayMoney.Calculate())
-        {
-            if(selectedPm == credit.payer)
-            {
-                GameObject hmPrefab= Instantiate(howMuchPays,paysContainer);
-                HowMuchTag hmTag = hmPrefab.GetComponentInChildren<HowMuchTag>();
-                hmTag.Setup(credit);
-            }
-        }
-        
-    }
+    
+   
     
 
 

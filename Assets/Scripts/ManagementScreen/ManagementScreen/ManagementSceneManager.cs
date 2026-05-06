@@ -91,7 +91,7 @@ public class ManagementSceneManager : MonoBehaviour
         
     }
 
-
+    //managementScreenでメンバーを表示する
     void AddPaymentMemberInList(ManagementRoom mr)
     {
         foreach (PersonManagement pm in mr.MembersListBack())
@@ -104,7 +104,7 @@ public class ManagementSceneManager : MonoBehaviour
             memberInput.Setup(pm);
         }
     }
-
+    //ボタンを押して登録が完了できた場合金銭入力を0にする
     private void ClearPaymentInputs()
     {
         foreach (Transform child in paymentContent)

@@ -58,6 +58,7 @@
     <Compile Include="Assets\Scripts\ManagementScreen\ManagementScreen\PaymentMemberInput.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\MemberScreen\MemberListManager.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\MemberScreen\MemberTag.cs" />
+    <Compile Include="Assets\Scripts\ManagementScreen\TabManager.cs" />
     <Compile Include="Assets\Scripts\HomeScene\HomeScreenManager.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\MemberScreen\HowMuchTag.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

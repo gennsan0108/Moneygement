@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 7005544573815437725}
   - component: {fileID: 4330445416047605554}
   m_Layer: 5
-  m_Name: DeleteButton
+  m_Name: InfoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -5,21 +5,20 @@ using UnityEngine.SceneManagement;
 public class ScreenChanger : MonoBehaviour
 {
 
-    private int currentScreenIndex = 0;
+    public static int currentScreenIndex = 0;
 
     void Start()
     {
         // 最初の画面を表示
-        ChangeManagementScreen(0);
+        ChangeManagementScreen(currentScreenIndex);
     }
 
-    public GameObject[] screens;
+    [SerializeField] private GameObject[] screens;
     public void ChangeManagementScreen(int screenIndex)
     {
-        if(currentScreenIndex == 1)
+        if(currentScreenIndex != 0)
         {
-            Debug.Log("aaa");
-            screens[1].GetComponentInChildren<BottomSheet>(true).Close();
+            screens[currentScreenIndex].GetComponentInChildren<BottomSheet>(true).Close();
         }
         
 

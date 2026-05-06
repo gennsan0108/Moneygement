@@ -9,6 +9,9 @@ public class RecordScreenManager : MonoBehaviour
     [SerializeField] private GameObject paysMembers;
     [SerializeField] private GameObject recordPrefab;
     [SerializeField] private TextMeshProUGUI totalMoney;
+
+    [SerializeField] private GameObject informationTab;
+    [SerializeField] private TabManager tabManager;
     ManagementRoom mr;
 
     void Start()
@@ -16,6 +19,7 @@ public class RecordScreenManager : MonoBehaviour
         GameManager.onDataChangedForMember = ReViewAllRecord;//再描写のためにメソッドを登録する
         mr = HomeScreenManager.currentRoom;
         totalMoney.text = "0円";
+        ReViewAllRecord();
     }
 
     
@@ -26,6 +30,13 @@ public class RecordScreenManager : MonoBehaviour
         record.GetComponentInChildren<TextMeshProUGUI>().text = pr.paymentTitle;
         Transform memberContainer = record.transform.Find("MemberContainer");
         totalMoney.text = "合計" + mr.totalAmount.ToString() +"円";
+
+        Button btn = record.GetComponentInChildren<Button>();
+        btn.onClick.AddListener(() =>
+        {
+            AddPrefabToTab(pr);
+            informationTab.GetComponent<BottomSheet>().Open();
+        });
         foreach (KeyValuePair<PersonManagement,int> pair in pr.GetPaysMember())
         {
             if(pair.Value > 0)
@@ -49,8 +60,15 @@ public class RecordScreenManager : MonoBehaviour
 
         foreach(PaymentRecord pr in mr.paymentRecordsList)//一つ一つ戻す
         {
-            ViewAddedRecord(pr);
+            PaymentRecord capturedPr = pr;
+            ViewAddedRecord(capturedPr);
         }
+
+    }
+
+    void AddPrefabToTab(PaymentRecord pr)
+    {
+        tabManager.OpenTab(pr, null);
 
     }
 }
