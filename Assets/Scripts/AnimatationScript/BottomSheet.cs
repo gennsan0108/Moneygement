@@ -3,8 +3,6 @@ using UnityEngine;
 public class BottomSheet : MonoBehaviour
 {
     private Animator animator;
-    [SerializeField] Transform content;
-    [SerializeField] GameObject prefabInfo;
 
     void Start()
     {
@@ -23,11 +21,7 @@ public class BottomSheet : MonoBehaviour
         animator.SetBool("isOpen", false);
     }
 
-    public void RegisterInfo()
-    {
-        Transform infoContainer = this.transform.Find("HowMuchList").transform;
-        
-    }
+    
 
 
 }
