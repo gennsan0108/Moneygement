@@ -20,7 +20,11 @@ public class ManagementRoom
 
         this.roomId = new string(Enumerable.Repeat(chars, 8).Select(s => s[rand.Next(s.Length)]).ToArray());
         this.hostPlayer = hostPlayer;
+        PersonManagement karidataUser2 = new PersonManagement("gen2", null);//後で消す
+        PersonManagement karidataUser3 = new PersonManagement("genn3", null);//後で消す
         member.Add(hostPlayer);
+        member.Add(karidataUser2);
+        member.Add(karidataUser3);
         this.title = title;
         this.paymentRecordsList = new List<PaymentRecord>();
         this.totalAmount = 0;
@@ -47,9 +51,11 @@ public class ManagementRoom
     }
     public void AddPayment(PaymentRecord payment)
     {
-        payment.CalcPayMoneyForEveyone();
+        
+        
         paymentRecordsList.Add(payment);
         totalAmount += payment.totalPayment;
-        
+        payment.CalcPayMoneyForEveyone();
+
     }
 }

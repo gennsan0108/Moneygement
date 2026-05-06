@@ -28,10 +28,12 @@ public class RecordScreenManager : MonoBehaviour
         totalMoney.text = "合計" + mr.totalAmount.ToString() +"円";
         foreach (KeyValuePair<PersonManagement,int> pair in pr.GetPaysMember())
         {
-            GameObject paysMember = Instantiate(paysMembers, memberContainer);
-            paysMember.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = pair.Key.personIcon;
-            paysMember.GetComponentInChildren<TextMeshProUGUI>().text = pair.Key.personName +"       " + pair.Value.ToString() + "円";
-            
+            if(pair.Value > 0)
+            {
+                GameObject paysMember = Instantiate(paysMembers, memberContainer);
+                paysMember.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = pair.Key.personIcon;
+                paysMember.GetComponentInChildren<TextMeshProUGUI>().text = pair.Key.personName + "       " + pair.Value.ToString() + "円";
+            }
         }
        
     }

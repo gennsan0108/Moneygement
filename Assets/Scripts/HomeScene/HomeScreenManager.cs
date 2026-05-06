@@ -34,6 +34,7 @@ public class HomeScreenManager :MonoBehaviour
         if (string.IsNullOrEmpty(groupName)) return;
 
         PersonManagement karidataUser = new PersonManagement("genn",defaultIconSprite);//後で消す
+        
         ManagementGroup managementGroup = new ManagementGroup(groupName, karidataUser);
 
         GameManager.instance.groups.Add(managementGroup);
