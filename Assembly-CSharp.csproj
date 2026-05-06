@@ -53,6 +53,7 @@
     <Compile Include="Assets\Scripts\ManagementScreen\ManagementRoom.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\ManagementScreen\PaymentRecord.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\RecordScreen\RecordScreenManager.cs" />
+    <Compile Include="Assets\Scripts\AnimatationScript\BottomSheet.cs" />
     <Compile Include="Assets\Scripts\CalculatePayMoney.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\ManagementScreen\PaymentMemberInput.cs" />
     <Compile Include="Assets\Scripts\ManagementScreen\MemberScreen\MemberListManager.cs" />

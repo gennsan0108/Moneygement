@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class MemberListManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private GameObject popupPanel;
+    [SerializeField] private GameObject informationTab;
 
     [SerializeField] private GameObject MemberLabel;//メンバー画面のメンバーPrefab
     [SerializeField] private Transform content;//を入れるスクロールバー
@@ -40,6 +40,12 @@ public class MemberListManager : MonoBehaviour
 
             MemberTag memberTag = memberLabel.GetComponent<MemberTag>();
             memberTag.Setup(pm);
+            Button btn = memberLabel.GetComponentInChildren<Button>();
+            btn.onClick.AddListener(() =>
+            {
+                PersonManagement capturedPm = pm;
+                informationTab.GetComponent<BottomSheet>().Open();
+            });
 
         }
     }
