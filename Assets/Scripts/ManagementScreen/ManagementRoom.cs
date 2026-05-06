@@ -13,6 +13,7 @@ public class ManagementRoom
     private List<PersonManagement> member = new List<PersonManagement>();
     public String title;
     public List<PaymentRecord> paymentRecordsList;
+    public  PaymentRecord totalPayment { get; private set; }
     public int totalAmount;
 
     public ManagementRoom(PersonManagement hostPlayer, string title)
@@ -28,34 +29,57 @@ public class ManagementRoom
         this.title = title;
         this.paymentRecordsList = new List<PaymentRecord>();
         this.totalAmount = 0;
+        totalPayment = new PaymentRecord(member);
     }
 
     public void AddMember(PersonManagement joiner)
     {
         member.Add(joiner);
+        foreach(PaymentRecord pr in paymentRecordsList)
+        {
+            pr.AddMember(joiner);
+        }
+        totalPayment.AddMember(joiner);
     }
 
     public void RemoveMember(PersonManagement leaver)
     {
-        member.Remove(leaver);
-        //請求リストに入っている人物の請求も削除
-        foreach (PaymentRecord pr in this.paymentRecordsList)
+        for (int i = paymentRecordsList.Count - 1; i >= 0; i--)
         {
-            pr.RemoveMember(leaver);
+            PaymentRecord pr = paymentRecordsList[i];
 
+            if (pr.HasPaid(leaver))
+            {
+                totalPayment.CombinePayment(pr, false);
+                totalAmount -= pr.totalPayment;
+                paymentRecordsList.RemoveAt(i);
+            }
+            else
+            {
+                pr.RemoveMember(leaver);
+            }
         }
+
+        totalPayment.RemoveMember(leaver);
+        member.Remove(leaver);
+
+        GameManager.onDataChangedForMember?.Invoke();
     }
+
+
     public List<PersonManagement> MembersListBack()
     {
         return member;
     }
+
+    //支払いをListに追加して、合計支払に加算する
     public void AddPayment(PaymentRecord payment)
     {
-        
-        
+
+        this.totalPayment.CombinePayment(payment,true);
         paymentRecordsList.Add(payment);
         totalAmount += payment.totalPayment;
-        payment.CalcPayMoneyForEveyone();
+
 
     }
 }

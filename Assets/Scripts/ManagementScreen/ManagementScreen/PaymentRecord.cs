@@ -16,7 +16,7 @@ public class PaymentRecord
         {
             paymentMembers.Add(pm,0);
         }
-        calculatePayMoney = new CalculatePayMoney();
+        calculatePayMoney = new CalculatePayMoney(paymentMembers);
         
     }
 
@@ -30,7 +30,7 @@ public class PaymentRecord
     //ここのメソッドは誰が誰に支払う計算をするのではなく、個人の差し引きを考えている
     public void CalcPayMoneyForEveyone() 
     {
-        calculatePayMoney.Calculate(this);
+        calculatePayMoney.Calculate();
     }
 
     
@@ -40,28 +40,53 @@ public class PaymentRecord
         return paymentMembers;
     }
 
-    //Dictのキーからpairを削除し、合計金額を差し引く
-    public void AddMember(PersonManagement pm, int money)
+    public void AddMember(PersonManagement joiner)
     {
-        paymentMembers[pm] = money;
-        totalPayment += money;
+        paymentMembers.Add(joiner, 0);
     }
 
-    //削除する人の中に支払人がいても削除
-    public void RemoveMember(PersonManagement targetPerson)
+
+    public bool HasPaid(PersonManagement person)
     {
-        if (paymentMembers.TryGetValue(targetPerson, out int money))
+        return paymentMembers.ContainsKey(person) && paymentMembers[person] > 0;
+    }
+
+    public void RemoveMember(PersonManagement person)
+    {
+        if (paymentMembers.ContainsKey(person))
         {
-            totalPayment -= money;
-            paymentMembers.Remove(targetPerson);
+            totalPayment -= paymentMembers[person];
+            paymentMembers.Remove(person);
         }
-        //Memberを含むList表示のものを再描写
-        GameManager.onDataChangedForMember?.Invoke();
-    }
-    public bool HasMembers()
-    {
-        return paymentMembers.Count > 0;
     }
 
-   
+    public bool HasPayment()
+    {
+        return paymentMembers.Values.Any(money => money > 0);
+    }
+
+
+    public void CombinePayment(PaymentRecord otherPayment,bool plus)
+    {
+        int sign = 1;
+        if (!plus) sign = -1;
+        foreach (var kvOther in otherPayment.GetPaysMember())
+        {
+            var person = kvOther.Key;
+            var money = kvOther.Value;
+
+            if (paymentMembers.ContainsKey(person))
+            {
+                // すでにいる人の場合は加算
+                paymentMembers[person] += money*sign;
+            }
+            
+
+            // 合計金額もしっかり更新
+            totalPayment += money*sign;
+        }
+
+    }
+
+
 }

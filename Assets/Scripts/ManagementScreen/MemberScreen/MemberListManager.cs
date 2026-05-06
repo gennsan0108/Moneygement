@@ -45,6 +45,7 @@ public class MemberListManager : MonoBehaviour
             {
                 PersonManagement capturedPm = pm;
                 informationTab.GetComponent<BottomSheet>().Open();
+
             });
 
         }
@@ -61,9 +62,18 @@ public class MemberListManager : MonoBehaviour
     }
 
     //請求作成画面でのメンバーのリスト表示
-    public void DeleteButtonPushed()
+    void DisplayBill(PersonManagement pm)
     {
-        return;
+        foreach(PaymentRecord pr in mr.paymentRecordsList)
+        {
+            foreach(Credit credit in pr.calculatePayMoney.Calculate())
+            {
+                if(pm == credit.payer)
+                {
+
+                }
+            }
+        }
     }
     
 

@@ -75,7 +75,7 @@ public class ManagementSceneManager : MonoBehaviour
             newRecord.SetMemberPayment(person, money);
         }
 
-        if (newRecord.HasMembers())
+        if (newRecord.HasPayment())
         {
             Debug.Log("通過");
             mr.AddPayment(newRecord);
