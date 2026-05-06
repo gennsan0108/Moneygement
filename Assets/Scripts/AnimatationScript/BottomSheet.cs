@@ -3,10 +3,13 @@ using UnityEngine;
 public class BottomSheet : MonoBehaviour
 {
     private Animator animator;
+    private RectTransform rectTransform;
+    [SerializeField] private float closedY = -900f;
 
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
+        rectTransform = GetComponent<RectTransform>();
     }
 
     public void Open()
@@ -17,11 +20,14 @@ public class BottomSheet : MonoBehaviour
 
     public void Close()
     {
-        Debug.Log("close");
         animator.SetBool("isOpen", false);
+
+
+
+        // 見た目の位置を直接閉じ位置に戻す
+        Vector2 pos = rectTransform.anchoredPosition;
+        pos.y = closedY;
+        rectTransform.anchoredPosition = pos;
     }
-
-    
-
-
 }
+

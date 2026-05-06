@@ -16,13 +16,22 @@ public class ScreenChanger : MonoBehaviour
     public GameObject[] screens;
     public void ChangeManagementScreen(int screenIndex)
     {
+        if(currentScreenIndex == 1)
+        {
+            Debug.Log("aaa");
+            screens[1].GetComponentInChildren<BottomSheet>(true).Close();
+        }
+        
+
         for (int i = 0; i < screens.Length; i++)
         {
             screens[i].SetActive(false);
         }
+
         currentScreenIndex = screenIndex;
         screens[screenIndex].SetActive(true);
     }
+
 
     public void BackToHomeScreen()
     {
@@ -81,4 +90,6 @@ public class ScreenChanger : MonoBehaviour
             ChangeManagementScreen(currentScreenIndex - 1);
         }
     }
+
+
 }

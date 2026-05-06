@@ -17,7 +17,7 @@ public class HowMuchTag : MonoBehaviour
         this.credit = credit;
         nameText.text = person.personName;
         spriteIcon.sprite = person.personIcon;
-        moneyText.text = (credit.amount).ToString() + "円";
+        moneyText.text = "-" +(credit.amount).ToString() + "円";
 
     }
 }
