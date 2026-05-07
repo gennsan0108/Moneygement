@@ -14,12 +14,14 @@ public class BottomSheet : MonoBehaviour
 
     public void Open()
     {
+        gameObject.SetActive(true);
         Debug.Log("open");
         animator.SetBool("isOpen", true);
     }
 
     public void Close()
     {
+        
         animator.SetBool("isOpen", false);
 
 
@@ -28,6 +30,7 @@ public class BottomSheet : MonoBehaviour
         Vector2 pos = rectTransform.anchoredPosition;
         pos.y = closedY;
         rectTransform.anchoredPosition = pos;
+        gameObject.SetActive(false);
     }
 }
 

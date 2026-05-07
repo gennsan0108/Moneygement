@@ -6,6 +6,7 @@ public class ScreenChanger : MonoBehaviour
 {
 
     public static int currentScreenIndex = 0;
+    [SerializeField] private BottomSheet informationTab;
 
     void Start()
     {
@@ -16,11 +17,12 @@ public class ScreenChanger : MonoBehaviour
     [SerializeField] private GameObject[] screens;
     public void ChangeManagementScreen(int screenIndex)
     {
-        if(currentScreenIndex != 0)
-        {
-            screens[currentScreenIndex].GetComponentInChildren<BottomSheet>(true).Close();
-        }
         
+            informationTab.Close();
+            
+        
+
+
 
         for (int i = 0; i < screens.Length; i++)
         {
@@ -37,58 +39,67 @@ public class ScreenChanger : MonoBehaviour
         SceneManager.LoadScene("HomeScene");
     }
 
-    
 
     Vector2 startPos;
     Vector2 endPos;
+    bool isTouching = false;
 
     void Update()
     {
-        // マウス（エディター・PC）
+#if UNITY_EDITOR
         if (Mouse.current != null)
         {
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
                 startPos = Mouse.current.position.ReadValue();
+                isTouching = true;
             }
-            if (Mouse.current.leftButton.wasReleasedThisFrame)
+
+            if (Mouse.current.leftButton.wasReleasedThisFrame && isTouching)
             {
                 endPos = Mouse.current.position.ReadValue();
+                isTouching = false;
                 CheckSwipe();
             }
         }
+#else
+    if (Touchscreen.current != null)
+    {
+        var touch = Touchscreen.current.primaryTouch;
 
-        // タッチ（実機）
-        if (Touchscreen.current != null && Touchscreen.current.touches.Count > 0)
+        if (touch.press.wasPressedThisFrame)
         {
-            var touch = Touchscreen.current.touches[0];
-            if (touch.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began)
-            {
-                startPos = touch.position.ReadValue();
-            }
-            if (touch.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Ended)
-            {
-                endPos = touch.position.ReadValue();
-                CheckSwipe();
-            }
+            startPos = touch.position.ReadValue();
+            isTouching = true;
         }
 
-
+        if (touch.press.wasReleasedThisFrame && isTouching)
+        {
+            endPos = touch.position.ReadValue();
+            isTouching = false;
+            CheckSwipe();
+        }
     }
+#endif
+    }
+
     void CheckSwipe()
     {
-        
-        //左スワイプ
-        if (startPos.x - endPos.x > 300 && currentScreenIndex < screens.Length - 1)
+        float swipeX = startPos.x - endPos.x;
+
+        // 左スワイプ
+        if (swipeX > 300 && currentScreenIndex < screens.Length - 1)
         {
             ChangeManagementScreen(currentScreenIndex + 1);
         }
-        //右スワイプ
-        if (startPos.x - endPos.x < -300 && currentScreenIndex > 0)
+        // 右スワイプ
+        else if (swipeX < -300 && currentScreenIndex > 0)
         {
             ChangeManagementScreen(currentScreenIndex - 1);
         }
     }
+
+
 
 
 }
